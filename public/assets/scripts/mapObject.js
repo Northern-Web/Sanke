@@ -59,7 +59,7 @@ export class Map {
 
   drawSnake(snake) {
     for (let i = 0; i < snake.positions.length; i++) {
-      this.ctx.fillStyle = (i == 0) ? snake.colorBody : snake.colorHead;
+      this.ctx.fillStyle = (i === 0) ? snake.colorBody : snake.colorHead;
       this.ctx.fillRect(snake.positions[i].x, snake.positions[i].y, this.getBlockSize(), this.getBlockSize());
 
       //this.ctx.fillStyle = "red";

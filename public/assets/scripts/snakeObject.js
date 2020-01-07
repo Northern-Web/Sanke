@@ -81,8 +81,8 @@ directionChange(map) {
   }
 
   eatFood(food){
-    if (  this.positions[0].x == food.x
-       && this.positions[0].y == food.y){
+    if (  this.positions[0].x === food.x
+       && this.positions[0].y === food.y){
          return true;
        } else {
          return false;
@@ -171,7 +171,7 @@ directionChange(map) {
        };
 
        this.fovPositions.push(newFovPosition);
-       
+
        newFovPosition = {
          x: this.positions[0].x + map.getBlockSize() + i * map.getBlockSize(),
          y: this.positions[0].y + 0

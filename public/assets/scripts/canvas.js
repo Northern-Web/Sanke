@@ -31,7 +31,7 @@ const KEY = {
   A: 65,
   S: 83,
   D: 68
-}
+};
 
 var map   = new Map(ROWS, COLUMNS, canvas, snakeBox);
 var snake = new Snake(map);
@@ -48,7 +48,7 @@ document.addEventListener("keydown", key => {
   }
 
   // Restart the game with the press of R
-  if (key.keyCode == KEY.R) {
+  if (key.keyCode === KEY.R) {
     isGameOver = true;
     resetScore();
     snake.resetSnake(map);
