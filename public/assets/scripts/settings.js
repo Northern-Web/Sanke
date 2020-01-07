@@ -8,10 +8,6 @@ export class Settings {
     this.foodLineToggle       = document.getElementById("food-line");
   }
 
-  read() {
-    console.log(this.REFRESH_RATE);
-  }
-
   getRefreshRate(FPS = 15) {
     const SECONDS = 1000;
     return (SECONDS / FPS);
