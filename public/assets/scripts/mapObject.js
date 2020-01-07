@@ -8,7 +8,7 @@ export class Map {
     this.canvas = canvas,
     this.ctx = canvas.getContext("2d"),
     this.foodDistance,
-    this.angle
+    this.angle;
   }
 
   getBlockSize() {

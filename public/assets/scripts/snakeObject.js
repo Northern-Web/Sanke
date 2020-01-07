@@ -12,13 +12,13 @@ export class Snake {
       x: map.getBlockSize() * 3,
       y: map.getBlockSize() * 5
     }],
-    this.colorBody = '#45b6fe',
-    this.colorHead = '#0e2433',
-    this.colorFieldOfView = '#90ee90',
+    this.colorBody = "#45b6fe",
+    this.colorHead = "#0e2433",
+    this.colorFieldOfView = "#90ee90",
     this.direction = "RIGHT",
     this.maxLength = 3,
     this.moves = 0,
-    this.fovPositions = []
+    this.fovPositions = [];
 
   }
 
@@ -94,15 +94,15 @@ directionChange(map) {
                           y: this.positions[0].y };
 
      this.positions.unshift(headPosition);
-     if (this.positions.length > this.maxLength){
-       this.positions.pop()
+     if (this.positions.length > this.maxLength) {
+       this.positions.pop();
      }
    }
 
    isTouchingItself(){
      for (var i = 1; i < this.positions.length; i++){
        if (this.positions[0].x === this.positions[i].x
-        && this.positions[0].y === this.positions[i].y){
+        && this.positions[0].y === this.positions[i].y) {
           return true;
         }
       }
@@ -122,9 +122,9 @@ directionChange(map) {
        x: map.getBlockSize() * 3,
        y: map.getBlockSize() * 5
      }],
-     this.direction = 'RIGHT',
+     this.direction = "RIGHT",
      this.maxLength = 3,
-     this.moves = 0
+     this.moves = 0;
    }
 
    incrementMove() {
@@ -168,54 +168,66 @@ directionChange(map) {
        var newFovPosition = {
          x: this.positions[0].x + map.getBlockSize(),
          y: this.positions[0].y - i * map.getBlockSize()
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+
+       this.fovPositions.push(newFovPosition);
+       
        newFovPosition = {
          x: this.positions[0].x + map.getBlockSize() + i * map.getBlockSize(),
          y: this.positions[0].y + 0
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+
+       this.fovPositions.push(newFovPosition);
        newFovPosition = {
          x: this.positions[0].x + map.getBlockSize(),
          y: this.positions[0].y + i * map.getBlockSize()
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+
+       this.fovPositions.push(newFovPosition);
        break;
 
        case "UP":
        var newFovPosition = {
          x: this.positions[0].x - i * map.getBlockSize(),
          y: this.positions[0].y - map.getBlockSize()
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+
+       this.fovPositions.push(newFovPosition);
+
        newFovPosition = {
          x: this.positions[0].x + 0,
          y: this.positions[0].y - map.getBlockSize() - i * map.getBlockSize()
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+
+       this.fovPositions.push(newFovPosition);
+
        newFovPosition = {
          x: this.positions[0].x + i * map.getBlockSize(),
          y: this.positions[0].y - map.getBlockSize()
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+
+       this.fovPositions.push(newFovPosition);
        break;
 
        case "LEFT":
        var newFovPosition = {
          x: this.positions[0].x - map.getBlockSize(),
          y: this.positions[0].y + i * map.getBlockSize()
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+
+       this.fovPositions.push(newFovPosition);
        newFovPosition = {
          x: this.positions[0].x - map.getBlockSize() - i * map.getBlockSize(),
          y: this.positions[0].y + 0
-       }
+       };
+
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
          x: this.positions[0].x - map.getBlockSize(),
          y: this.positions[0].y - i * map.getBlockSize()
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+
+       this.fovPositions.push(newFovPosition);
        break;
 
        case "DOWN":
@@ -227,13 +239,14 @@ directionChange(map) {
        newFovPosition = {
          x: this.positions[0].x + 0,
          y: this.positions[0].y + map.getBlockSize() + i * map.getBlockSize()
-       }
+       };
+
        this.fovPositions.push(newFovPosition)
        newFovPosition = {
          x: this.positions[0].x - i * map.getBlockSize(),
          y: this.positions[0].y + map.getBlockSize()
-       }
-       this.fovPositions.push(newFovPosition)
+       };
+       this.fovPositions.push(newFovPosition);
        break;
      }
    }

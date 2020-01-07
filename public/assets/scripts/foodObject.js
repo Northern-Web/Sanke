@@ -3,7 +3,7 @@ export class Food {
     this.x = x,
     this.y = y,
     this.value = 100,
-    this.color = "#b11226"
+    this.color = "#b11226";
   }
 
   static getRandomFood(map) {

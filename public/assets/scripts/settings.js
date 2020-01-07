@@ -3,9 +3,9 @@ export class Settings {
     this.isHumanPlaying       = true,
     this.isSnakeVisionVisible = false,
     this.isFoodLineVisible    = false,
-    this.humanToggle          = document.getElementById('player-type'),
-    this.snakeVisionToggle    = document.getElementById('snake-vision'),
-    this.foodLineToggle       = document.getElementById('food-line')
+    this.humanToggle          = document.getElementById("player-type"),
+    this.snakeVisionToggle    = document.getElementById("snake-vision"),
+    this.foodLineToggle       = document.getElementById("food-line");
   }
 
   read() {
