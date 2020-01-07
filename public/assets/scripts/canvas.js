@@ -1,9 +1,9 @@
-import { Map }      from './mapObject.js';
-import { Snake }    from './snakeObject.js';
-import { Food }     from './foodObject.js';
-import { Settings } from './settings.js';
+import { Map }      from "./mapObject.js";
+import { Snake }    from "./snakeObject.js";
+import { Food }     from "./foodObject.js";
+import { Settings } from "./settings.js";
 
-var canvas = document.getElementById('snake');
+var canvas = document.getElementById("snake");
 var settings = new Settings();
 settings.setInitialState();
 // Global variables
@@ -12,12 +12,12 @@ var scorePerMove = 0;
 const ROWS       = 32;
 const COLUMNS    = 32;
 var isGameOver   = false;
-const currentScoreBoard = document.getElementById('current-score');
-const scorePerMoveBoard = document.getElementById('score-per-move');
-const playerMovesBoard  = document.getElementById('player-moves');
-const bestScoreBoard    = document.getElementById('best-score');
-const snakeBox          = document.getElementById('snake-box');
-const bestScoreLocalStorage = 'bestScore';
+const currentScoreBoard = document.getElementById("current-score");
+const scorePerMoveBoard = document.getElementById("score-per-move");
+const playerMovesBoard  = document.getElementById("player-moves");
+const bestScoreBoard    = document.getElementById("best-score");
+const snakeBox          = document.getElementById("snake-box");
+const bestScoreLocalStorage = "bestScore";
 localStorage.setItem(bestScoreLocalStorage, 0);
 
 const KEY = {
@@ -64,15 +64,15 @@ document.addEventListener("keydown", key => {
   }
 });
 
-settings.humanToggle.addEventListener('change', () => {
+settings.humanToggle.addEventListener("change", () => {
   settings.toggleHuman();
 });
 
-settings.snakeVisionToggle.addEventListener('change', () => {
+settings.snakeVisionToggle.addEventListener("change", () => {
   settings.toggleSnakeVision();
 });
 
-settings.foodLineToggle.addEventListener('change', () => {
+settings.foodLineToggle.addEventListener("change", () => {
   settings.toggleFoodLine();
 });
 
