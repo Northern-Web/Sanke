@@ -6,11 +6,11 @@ import { Settings } from "./settings.js";
 var canvas = document.getElementById("snake");
 var settings = new Settings();
 settings.setInitialState();
+
 // Global variables
 var score        = 0;
 var scorePerMove = 0;
-const ROWS       = 32;
-const COLUMNS    = 32;
+const BLOCKSIZE  = 32;
 var isGameOver   = false;
 const currentScoreBoard = document.getElementById("current-score");
 const scorePerMoveBoard = document.getElementById("score-per-move");
@@ -33,10 +33,19 @@ const KEY = {
   D: 68
 };
 
-var map   = new Map(ROWS, COLUMNS, canvas, snakeBox);
+var map   = new Map(BLOCKSIZE, canvas, snakeBox);
 var snake = new Snake(map);
 var food  = Food.getRandomFood(map);
 
+/* Unit test of food
+var testResults = Food.testFoodSpawnInSnake(map, snake, 1000000);
+//console.log(`=== FOOD SPAWN TEST ===\n
+            Food in snake: ${testResults.true} (${testResults.percentTruthy} %)\n
+            Food not in snake: ${testResults.false} (${testResults.percentFalsy} %)\n
+            Total test cases: ${testResults.total}\n
+            === END OF TEST ===`)
+
+*/
 document.addEventListener("keydown", key => {
   snake.getDirection(key.keyCode, KEY);
 

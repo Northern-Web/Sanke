@@ -1,9 +1,10 @@
 export class Map {
-  constructor(numRows, numCols, canvas, snakeBox) {
+  constructor(blocksize, canvas, snakeBox) {
     this.width   = Math.floor(snakeBox.clientWidth),
     this.height  = Math.floor(snakeBox.clientWidth),
-    this.numRows = Math.floor(this.height / numRows),
-    this.numCols = Math.floor(this.width / numCols),
+  //  this.numRows = Math.floor(this.height / numRows),
+  //  this.numCols = Math.floor(this.width / numCols),
+    this.blockSize = blocksize;
     this.backgroundColor = "#838383",
     this.canvas = canvas,
     this.ctx = canvas.getContext("2d"),
@@ -12,7 +13,7 @@ export class Map {
   }
 
   getBlockSize() {
-    return Math.floor(this.height / this.numRows);
+    return Math.floor(this.height / this.blockSize);
   }
 
   setCanvasSize() {
