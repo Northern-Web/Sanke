@@ -1,7 +1,7 @@
 export class Map {
   constructor(blocksize, canvas, snakeBox) {
     this.width   = Math.floor(snakeBox.clientWidth),
-    this.height  = Math.floor(snakeBox.clientWidth),
+    this.height  = Math.floor(snakeBox.clientHeight),
   //  this.numRows = Math.floor(this.height / numRows),
   //  this.numCols = Math.floor(this.width / numCols),
     this.blockSize = blocksize;
@@ -13,7 +13,7 @@ export class Map {
   }
 
   getBlockSize() {
-    return Math.floor(this.height / this.blockSize);
+    return this.blockSize;
   }
 
   setCanvasSize() {
@@ -25,7 +25,7 @@ export class Map {
   // Make it visually fill the positioned parent
   this.canvas.style.width  = "100%";
   this.canvas.style.height = "100%";
-  // ...then set the internal size to match
+  // Then set the internal size to match
   this.canvas.width  = this.canvas.offsetWidth;
   this.canvas.height = this.canvas.offsetHeight;
 }
@@ -40,7 +40,7 @@ export class Map {
   }
 
   drawRow(iRowCounter) {
-      for (let iBlockCounter = 0; iBlockCounter < this.numRows; iBlockCounter++) {
+      for (let iBlockCounter = 0; iBlockCounter < this.getBlockSize(); iBlockCounter++) {
           this.drawBlock(iRowCounter, iBlockCounter);
       }
   }
@@ -49,13 +49,13 @@ export class Map {
     this.fitCanvasToContainer();
     this.setCanvasSize();
 
-    for (let iRowCounter = 0; iRowCounter < this.numCols; iRowCounter++) {
+    for (let iRowCounter = 0; iRowCounter < this.getBlockSize(); iRowCounter++) {
         this.drawRow(iRowCounter);
     }
 
       // Draw outline
       this.ctx.lineWidth = 3;
-      this.ctx.strokeRect(0, 0, this.numCols * this.getBlockSize(), this.numRows * this.getBlockSize());
+      this.ctx.strokeRect(0, 0, this.getBlockSize() * this.getBlockSize(), this.getBlockSize() * this.getBlockSize());
   }
 
   drawSnake(snake) {

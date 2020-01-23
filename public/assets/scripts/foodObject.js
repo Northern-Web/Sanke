@@ -7,8 +7,8 @@ export class Food {
   }
 
   static getRandomFood(map) {
-    var randomX = Math.floor(Math.random() * map.getBlockSize()) * map.getBlockSize();
-    var randomY = Math.floor(Math.random() * map.getBlockSize()) * map.getBlockSize();
+    var randomX = Math.floor(Math.random() * map.width);
+    var randomY = Math.floor(Math.random() * map.height);
     var food = new Food(randomX, randomY);
     return food;
   }

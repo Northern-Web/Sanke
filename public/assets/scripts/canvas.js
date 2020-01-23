@@ -37,15 +37,15 @@ var map   = new Map(BLOCKSIZE, canvas, snakeBox);
 var snake = new Snake(map);
 var food  = Food.getRandomFood(map);
 
-/* Unit test of food
-var testResults = Food.testFoodSpawnInSnake(map, snake, 1000000);
-//console.log(`=== FOOD SPAWN TEST ===\n
+ //Unit test of food
+/*var testResults = Food.testFoodSpawnInSnake(map, snake, 1000000);
+  console.log(`=== FOOD SPAWN TEST ===\n
             Food in snake: ${testResults.true} (${testResults.percentTruthy} %)\n
             Food not in snake: ${testResults.false} (${testResults.percentFalsy} %)\n
             Total test cases: ${testResults.total}\n
-            === END OF TEST ===`)
+            === END OF TEST ===`);*/
 
-*/
+
 document.addEventListener("keydown", key => {
   snake.getDirection(key.keyCode, KEY);
 
@@ -125,13 +125,33 @@ function debug() {
   console.log(map);
   console.log(snake);
   console.log(food);
+
+  console.log("------ Div Container ------");
+  console.log("Width: " + map.width);
+  console.log("Height: " + map.height);
+
+  console.log("------ Context ------");
+  console.log("Width: " + map.ctx.canvas.width);
+  console.log("Height: " + map.ctx.canvas.height);
+
+  console.log("------ Canvas ------");
+  console.log("Width: " + map.canvas.width);
+  console.log("Height: " + map.canvas.height);
+
+  console.log(food);
+  console.log("BlockSize: " + map.getBlockSize());
+
+
+
 }
 
 map.drawMap();
 map.drawSnake(snake);
 map.drawFood(food);
 
-//Debug();
+
+
+debug();
 
 function gameLoop() {
   map.drawMap();
